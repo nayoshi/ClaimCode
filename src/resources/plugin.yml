@@ -1,0 +1,10 @@
+main: dev.nayo.claimcode.ClaimCode
+name: ClaimCode
+api-version: 1.19
+version: 1.0
+authors: [nayoshi12]
+
+commands:
+  claimcode:
+    description: "Command allows players to redeem valid promotional code"
+    permission: *
