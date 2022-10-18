@@ -1,0 +1,26 @@
+prefix: "&c[&aClaimCode&c]"
+codes:
+  youtube-reward:
+    keys: #This will be case-insensitive. So YOUTUBE2022 is valid and YouTube2022 is valid too
+      - youtube2022
+      - onepeaceisawesome
+      - nayoiscool
+    rewards:
+      - give {player} gold_hoe 1
+      - broadcast ur mum
+    enabled: true
+    claim-msg: "wahoo"
+    blacklists: # This prevents people from redeeming keys that were already in promotion before
+      - discord-reward
+  discord-reward:
+    keys:
+      - discord2022
+      - onepeaceisdope
+      - poopynayo
+    rewards:
+      - give {player} gold_hoe 1
+      - broadcast ur mum
+    enabled: true
+    claim-msg: "wahoo"
+    blacklists: # This prevents people from redeeming keys that were already in promotion before
+      - youtube-reward

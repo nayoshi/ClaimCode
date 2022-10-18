@@ -10,7 +10,7 @@ import java.util.logging.Level;
 
 public class UseDatabase {
     private ClaimCode instance;
-    private final String FILE_NAME = "ClaimCode";
+    private final String FILE_NAME = "ClaimCode.db";
     private Connection db;
     public UseDatabase() throws SQLException {
         instance = ClaimCode.getInstance();

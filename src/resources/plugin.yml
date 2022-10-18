@@ -7,4 +7,3 @@ authors: [nayoshi12]
 commands:
   claimcode:
     description: "Command allows players to redeem valid promotional code"
-    permission: *
