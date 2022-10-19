@@ -17,13 +17,12 @@ public class CodeManager {
         stringToInstance = new HashMap<>();
         Set<String> codeSet = instance.getConfig().getConfigurationSection("codes").getKeys(false);
         codeInstanceList = new ArrayList<>();
-
         for (String codeString: codeSet) {
             if (instance.isDisabled()) {
                 return;
             }
             CodeInstance code = new CodeInstance()
-                    .setName(codeString)
+                    .setName(codeString.toLowerCase())
                     .setClaimMessage(instance.getConfig().getString(formatter(codeString, "claim-msg")))
                     .setBlacklists(instance.getConfig().getStringList(formatter(codeString, "blacklists")))
                     .setKeys(instance.getConfig().getStringList(formatter(codeString, "keys")))
@@ -31,7 +30,7 @@ public class CodeManager {
                     .setEnabled(instance.getConfig().getBoolean(formatter(codeString, "enabled")));
             for(String key: code.getKeys()) {
                 if (!keyToCode.containsKey(key)) {
-                    keyToCode.put(key, code);
+                    keyToCode.put(key.toLowerCase(), code);
                 } else {
                     instance.setDisabled(true);
                     for(int i = 0; i < 5; i++) {
@@ -43,6 +42,22 @@ public class CodeManager {
             stringToInstance.put(code.getName(), code);
             codeInstanceList.add(code);
         }
+    }
+
+    public CodeInstance getCodeInstanceFromString(String str) {
+        return keyToCode.get(str);
+    }
+
+    public CodeInstance getCodeInstanceFromName(String str) {return stringToInstance.get(str);}
+    public List<String> getAllKeys() {
+        List<String> str = new ArrayList<>();
+        keyToCode.keySet().forEach(str::add);
+        return str;
+    }
+    public List<String> getAllCode() {
+        List<String> str = new ArrayList<>();
+        codeInstanceList.forEach(codeInstance -> str.add(codeInstance.getName()));
+        return str;
     }
     private String formatter(String name, String append) {
         return "codes." + name + "." + append;

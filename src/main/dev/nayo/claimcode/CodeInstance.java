@@ -46,14 +46,8 @@ public class CodeInstance {
         return this;
     }
 
-    public void addKey(String str) {
-        keys.add(str);
-    }
     public List<String> getKeys() {
         return keys;
-    }
-    public void addReward(String command) {
-        rewards.add(command);
     }
     public List<String> getRewards() {
         return rewards;
@@ -61,9 +55,6 @@ public class CodeInstance {
 
     public boolean isEnabled() {
         return enabled;
-    }
-    public void addBlacklist(String blacklist) {
-        blacklists.add(blacklist);
     }
     public List<String> getBlacklists() {
         return blacklists;

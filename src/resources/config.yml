@@ -1,4 +1,4 @@
-prefix: "&c[&aClaimCode&c]"
+prefix: "&c[&6ClaimCode&c]"
 codes:
   youtube-reward:
     keys: #This will be case-insensitive. So YOUTUBE2022 is valid and YouTube2022 is valid too

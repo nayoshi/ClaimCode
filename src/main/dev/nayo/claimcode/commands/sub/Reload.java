@@ -6,21 +6,21 @@ import org.bukkit.command.CommandSender;
 
 public class Reload extends SubCommand {
     private ClaimCode instance;
-    private String name;
-
+    private String permission;
     public Reload() {
         instance = ClaimCode.getInstance();
+        permission = "claimcode.reload";
     }
     public void execute(CommandSender cs, String[] args) {
-
+        instance.reload();
+        cs.sendMessage(instance.getHelper().print("Plugin Reloaded!"));
     }
 
-    public SubCommand setName(String name) {
-        this.name = name;
-        return this;
+    public String getPermission() {
+        return permission;
     }
 
     public String getName() {
-        return name;
+        return "reload";
     }
 }

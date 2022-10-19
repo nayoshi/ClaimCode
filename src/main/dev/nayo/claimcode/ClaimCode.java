@@ -1,5 +1,7 @@
 package dev.nayo.claimcode;
 
+import dev.nayo.claimcode.commands.CCAutoComplete;
+import dev.nayo.claimcode.commands.MainExecutor;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -17,20 +19,24 @@ public class ClaimCode extends JavaPlugin {
         ensureOrCreateFolder(getDataFolder());
         saveDefaultConfig();
         try {
-            UseDatabase db = new UseDatabase();
+            db = new UseDatabase();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         reload();
-
     }
 
     public void reload() {
         reloadConfig();
+        codeManager = null;
         disabled = false;
+        instance = null;
+        instance = this;
         prefix = getConfig().getString("prefix");
         helper = new Helper();
         codeManager = new CodeManager();
+        this.getCommand("claimcode").setExecutor(new MainExecutor());
+        this.getCommand("claimcode").setTabCompleter(new CCAutoComplete());
     }
 
 
@@ -66,5 +72,13 @@ public class ClaimCode extends JavaPlugin {
 
     public String getPrefix() {
         return prefix;
+    }
+
+    public CodeManager getCodeManager() {
+        return codeManager;
+    }
+
+    public UseDatabase useDatabase() {
+        return db;
     }
 }
