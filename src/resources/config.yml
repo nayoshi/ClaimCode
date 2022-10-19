@@ -1,5 +1,5 @@
 prefix: "&c[&6ClaimCode&c]"
-codes:
+codes: #You can have as many promotions going. Just copy paste the sections, so that everything is included.
   youtube-reward:
     keys: #This will be case-insensitive. So YOUTUBE2022 is valid and YouTube2022 is valid too
       - youtube2022
@@ -12,15 +12,16 @@ codes:
     claim-msg: "wahoo"
     blacklists: # This prevents people from redeeming keys that were already in promotion before
       - discord-reward
-  discord-reward:
-    keys:
+  #Feel free to copy paste each sections
+  discord-reward: #you can change this to anything valid as yml
+    keys: #This can be 1 or 10000
       - discord2022
       - onepeaceisdope
       - poopynayo
-    rewards:
+    rewards: #Same with this
       - give {player} gold_hoe 1
       - broadcast ur mum
-    enabled: true
-    claim-msg: "wahoo"
+    enabled: true #Enable/Disable this whenever yall are done with promotion
+    claim-msg: "wahoo" #This supports color codes like &a &4 etc
     blacklists: # This prevents people from redeeming keys that were already in promotion before
       - youtube-reward
