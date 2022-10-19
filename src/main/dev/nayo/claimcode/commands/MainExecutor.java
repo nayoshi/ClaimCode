@@ -62,7 +62,7 @@ public class MainExecutor implements CommandExecutor {
                 }
                 if (access) {
                     stringBuilder.append(commands);
-                    stringBuilder.append("&aFollow the goshdarn autocomplete, I worked so hard on it, please use it T^T");
+                    stringBuilder.append("&a&lFollow the goshdarn autocomplete, I worked so hard on it, please use it T^T");
                 }
                 instance.getHelper().sendMessage(cs, stringBuilder.toString());
                 return true;
